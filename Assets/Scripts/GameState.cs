@@ -4,17 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
-    public event Action GameOver;
+    public event Action<int> GameOver;
     private bool _isGameOver = false;
+    private int _killCount = 0;
     private void Awake()
     {
         FindObjectOfType<HealthManager>().HealthChanged += OnHealthChange;
     }
-    void OnHealthChange(float currentHealth)
+
+    public void AddKill()
+    {
+        _killCount++;
+    }
+
+    private void OnHealthChange(float currentHealth)
     {
         if( currentHealth <= 0)
         {
-            GameOver();
+            GameOver(_killCount);
             Time.timeScale = 0;
             _isGameOver = true;
         }

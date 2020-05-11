@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
 {
+    [SerializeField] private GameObject enemiesKilledText = null;
     private GameState _gameState;
     private void Awake()
     {
@@ -12,9 +11,10 @@ public class GameOverUI : MonoBehaviour
         _gameState.GameOver += OnGameOver;
     }
 
-    private void OnGameOver()
+    private void OnGameOver(int enemiesKilled)
     {
-        foreach(Transform childTransform in transform)
+        enemiesKilledText.GetComponent<TextMeshProUGUI>().text = $"You killed { enemiesKilled } enemies";
+        foreach (Transform childTransform in transform)
         {
             childTransform.gameObject.SetActive(true);
         }
