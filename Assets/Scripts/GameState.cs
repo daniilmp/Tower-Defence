@@ -1,17 +1,18 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class GameState : MonoBehaviour
 {
-    public float Health = 20;
-    public event Action<float> HealthChanged;
     public event Action GameOver;
     private bool _isGameOver = false;
-    public void Damage(float amount)
+    private void Awake()
     {
-        Health -= amount;
-        HealthChanged(Health);
-        if (Health <= 0)
+        FindObjectOfType<HealthManager>().HealthChanged += OnHealthChange;
+    }
+    void OnHealthChange(float currentHealth)
+    {
+        if( currentHealth <= 0)
         {
             GameOver();
             Time.timeScale = 0;
