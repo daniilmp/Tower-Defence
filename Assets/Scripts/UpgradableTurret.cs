@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Upgradable : MonoBehaviour
+public class UpgradableTurret : MonoBehaviour, IUpgradable
 {
     [SerializeField] private float priceForUpgrade = 1;
     private GoldManager _goldManager;

@@ -9,14 +9,14 @@ public class Turret : MonoBehaviour
     
     private EnemySpawner _enemySpawner;
     private RotateToTarget _rotateToTarget;
-    private Upgradable _upgradable;
+    private IUpgradable _upgradable;
     private Shooting _shooting;
     private Enemy _target = null;
     private void Awake()
     {
         _enemySpawner = FindObjectOfType<EnemySpawner>();
         _shooting = GetComponent<Shooting>();
-        _upgradable = GetComponent<Upgradable>();
+        _upgradable = GetComponent<IUpgradable>();
         _rotateToTarget = GetComponent<RotateToTarget>();
         StartCoroutine(ChangeTarget());
     }

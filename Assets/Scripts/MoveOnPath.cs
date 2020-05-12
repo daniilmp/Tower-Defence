@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 public class MoveOnPath : MonoBehaviour
 {
+    public float Speed  { get => speed; set { speed = value; } }
+
     [SerializeField]
-    private float _speed = 5f, rotationSpeed = 3f;
+    private float speed = 5f, rotationSpeed = 3f;
 
     private int _currentNodeIndex = 0;
     private Transform _target;
@@ -28,7 +30,7 @@ public class MoveOnPath : MonoBehaviour
     }
     private void MoveToNode(Vector3 direction)
     {
-        transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
+        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
     }
     private void LookAtNode(Vector3 direction)
     {
