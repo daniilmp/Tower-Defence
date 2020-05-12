@@ -2,16 +2,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameState : MonoBehaviour
+public class GameStateManager : Singleton<GameStateManager>
 {
     public event Action<int> GameOver;
     private bool _isGameOver = false;
     private int _killCount = 0;
-    private void Awake()
-    {
-        FindObjectOfType<HealthManager>().HealthChanged += OnHealthChange;
-    }
 
+    private void Start()
+    {
+        HealthManager.Instance.HealthChanged += OnHealthChange;
+
+    }
     public void AddKill()
     {
         _killCount++;
@@ -41,5 +42,9 @@ public class GameState : MonoBehaviour
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+    private void OnDestroy()
+    {
+        HealthManager.Instance.HealthChanged -= OnHealthChange;
     }
 }

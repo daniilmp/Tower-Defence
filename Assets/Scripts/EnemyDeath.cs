@@ -10,7 +10,7 @@ public class EnemyDeath : MonoBehaviour
     public void Death()
     {
         FindObjectOfType<EnemySpawner>().Enemies.Remove(enemyReference);
-        FindObjectOfType<GameState>().AddKill();
+        GameStateManager.Instance.AddKill();
         Destroy(gameObject);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class HealthManager : Singleton<HealthManager>
 {
     public event Action<float> HealthChanged;
 

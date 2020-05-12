@@ -4,11 +4,9 @@ using UnityEngine;
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private GameObject enemiesKilledText = null;
-    private GameState _gameState;
     private void Awake()
     {
-        _gameState = FindObjectOfType<GameState>();
-        _gameState.GameOver += OnGameOver;
+        GameStateManager.Instance.GameOver += OnGameOver;
     }
 
     private void OnGameOver(int enemiesKilled)
@@ -18,5 +16,9 @@ public class GameOverUI : MonoBehaviour
         {
             childTransform.gameObject.SetActive(true);
         }
+    }
+    private void OnDestroy()
+    {
+        GameStateManager.Instance.GameOver -= OnGameOver;
     }
 }

@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
-    private HealthManager _healthManager;
     private TextMeshProUGUI _textMeshPro;
     private void Awake()
     {
-        _healthManager = FindObjectOfType<HealthManager>();
         _textMeshPro = GetComponent<TextMeshProUGUI>();
-        ChangeHealth(_healthManager.Health);
-        _healthManager.HealthChanged += ChangeHealth;
+        ChangeHealth(HealthManager.Instance.Health);
+        HealthManager.Instance.HealthChanged += ChangeHealth;
     }
     private void ChangeHealth(float health)
     {
@@ -20,6 +18,6 @@ public class HealthUI : MonoBehaviour
     }
     private void OnDestroy()
     {
-        _healthManager.HealthChanged -= ChangeHealth;
+        HealthManager.Instance.HealthChanged -= ChangeHealth;
     }
 }
