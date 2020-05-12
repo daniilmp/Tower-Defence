@@ -530,6 +530,8 @@ GameObject:
   m_Component:
   - component: {fileID: 405261645}
   - component: {fileID: 405261644}
+  - component: {fileID: 405261646}
+  - component: {fileID: 405261647}
   m_Layer: 0
   m_Name: GameState
   m_TagString: Untagged
@@ -549,8 +551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a80b7536090ce9459af9546bf5483e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
-  Gold: 0
 --- !u!4 &405261645
 Transform:
   m_ObjectHideFlags: 0
@@ -565,6 +565,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &405261646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405261643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c6d5754331cf84e930d2bd6d7e32cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 0
+--- !u!114 &405261647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405261643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c07fd2bd94f27469c5e4df883c0693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
 --- !u!1001 &577400686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -572,6 +598,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1724760097, guid: b2344b83673feff4085d090c363b38f8, type: 3}
+      propertyPath: fireRate
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 770362492157693301, guid: b2344b83673feff4085d090c363b38f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1489,6 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e6c6e57d2424f41b850d097c6cce08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesKilledText: {fileID: 760669752}
 --- !u!1 &1432297838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,6 +1908,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1724760097, guid: b2344b83673feff4085d090c363b38f8, type: 3}
+      propertyPath: fireRate
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 770362492157693301, guid: b2344b83673feff4085d090c363b38f8,
         type: 3}
       propertyPath: m_LocalPosition.x

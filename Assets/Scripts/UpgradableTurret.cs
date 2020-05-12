@@ -2,7 +2,7 @@
 
 public class UpgradableTurret : MonoBehaviour, IUpgradable
 {
-    [SerializeField] private float priceForUpgrade = 1;
+    [SerializeField] private float priceForUpgrade = 1, fireRateUpgradeValue = 0.05f, damageUpgradeValue = 0.2f;
     private GoldManager _goldManager;
     private void Awake()
     {
@@ -12,9 +12,9 @@ public class UpgradableTurret : MonoBehaviour, IUpgradable
     {
         if (_goldManager.CanSpend(priceForUpgrade))
         {
-            _goldManager.SpendGold(1);
-            GetComponent<IHasStats>().FireRate -= 0.05f;
-            GetComponent<IHasStats>().Damage += 0.2f;
+            _goldManager.SpendGold(priceForUpgrade);
+            GetComponent<IHasStats>().FireRate -= fireRateUpgradeValue;
+            GetComponent<IHasStats>().Damage += damageUpgradeValue;
         }
         else
         {
