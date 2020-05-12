@@ -37,7 +37,7 @@ public class Shooting: MonoBehaviour, IHasStats
 
     private void Shoot(Transform target)
     {
-        target.GetComponent<HasHealth>().TakeDamage(damage);
+        target.GetComponent<HasHealth>()?.TakeDamage(damage);
     }
 
 }

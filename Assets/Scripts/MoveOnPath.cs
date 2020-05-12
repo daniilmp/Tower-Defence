@@ -8,11 +8,8 @@ public class MoveOnPath : MonoBehaviour
 
     private int _currentNodeIndex = 0;
     private Transform _target;
-    private CanDealDamage canDealDamage;
-    private void Awake()
-    {
-        canDealDamage = GetComponent<CanDealDamage>();
-    }
+    private bool _isAlive = true;
+
     private void Start()
     {
         _target = Path.PathNodes[_currentNodeIndex];
@@ -20,12 +17,15 @@ public class MoveOnPath : MonoBehaviour
 
     private void Update()
     {
-        Vector3 moveDirection = (_target.position - transform.position).normalized;
-        MoveToNode(moveDirection);
-        LookAtNode(moveDirection);
-        if (Vector3.Distance(transform.position, Path.PathNodes[_currentNodeIndex].position) <= 0.05f)
+        if (_isAlive)
         {
-            GetNextNode();
+            Vector3 moveDirection = (_target.position - transform.position).normalized;
+            MoveToNode(moveDirection);
+            LookAtNode(moveDirection);
+            if (Vector3.Distance(transform.position, Path.PathNodes[_currentNodeIndex].position) <= 0.05f)
+            {
+                GetNextNode();
+            }
         }
     }
     private void MoveToNode(Vector3 direction)
@@ -43,9 +43,7 @@ public class MoveOnPath : MonoBehaviour
         _currentNodeIndex++;
         if (_currentNodeIndex >= Path.PathNodes.Length)
         {
-            //Move this to another class or smth
-            canDealDamage?.Damage();
-            GetComponent<EnemyDeath>().Death();
+            _isAlive = false;
         }
         else
         {

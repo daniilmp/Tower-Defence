@@ -24,6 +24,7 @@ public class HasHealth : MonoBehaviour
         if (_currentHealth <= 0)
         {
             _hasReward?.GiveReward();
+            GameStateManager.Instance.AddKill();
             _enemyDeath?.Death();
         }
     }
