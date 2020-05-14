@@ -1,22 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Turret : MonoBehaviour
 {
     [SerializeField] private float lockOnTargetRange = 5, changeTargetCooldown = 1;
-    
     private EnemySpawner _enemySpawner;
     private RotateToTarget _rotateToTarget;
-    private IUpgradable _upgradable;
     private Shooting _shooting;
     private Enemy _target = null;
     private void Awake()
     {
         _enemySpawner = FindObjectOfType<EnemySpawner>();
         _shooting = GetComponent<Shooting>();
-        _upgradable = GetComponent<IUpgradable>();
         _rotateToTarget = GetComponent<RotateToTarget>();
         StartCoroutine(ChangeTarget());
     }
@@ -50,10 +45,5 @@ public class Turret : MonoBehaviour
             }
         }
         return target;
-    }
-
-    private void OnMouseUp()
-    {
-        _upgradable?.Upgrade();
     }
 }
