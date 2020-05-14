@@ -459,6 +459,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8819316170616284371, guid: 52bcb567588c3294199140ff16c023db,
         type: 3}
+    - target: {fileID: 9201347183809434726, guid: cb1abac029e62bc4483a483593a73c21,
+        type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 1405418471}
     - target: {fileID: 9201347183809434727, guid: cb1abac029e62bc4483a483593a73c21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1696,6 +1701,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesKilledText: {fileID: 760669752}
+--- !u!114 &1405418471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5180139055580207212, guid: 6b47fd0caff7dda479643dcf31b2b44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5180139056104013973}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a1b32cc8d36be45a3feadacf81afa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1432297838
 GameObject:
   m_ObjectHideFlags: 0

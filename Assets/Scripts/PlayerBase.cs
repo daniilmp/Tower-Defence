@@ -8,8 +8,8 @@ public class PlayerBase : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<CanDealDamage>()?.Damage();
-            other.GetComponent<EnemyDeath>()?.Death();
+            other.GetComponent<ICanDealDamage>()?.Damage();
+            other.GetComponent<IDeath>()?.Death();
         }
     }
 }

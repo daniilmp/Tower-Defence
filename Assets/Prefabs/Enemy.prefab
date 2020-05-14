@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotationSpeed: 3
+  path: {fileID: 5180139055580207212, guid: 6b47fd0caff7dda479643dcf31b2b44a, type: 3}
 --- !u!114 &2537884720407587990
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,24 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Path : MonoBehaviour
+public class Path : MonoBehaviour, IPath
 {
-    public static Transform[] PathNodes;
-    private List<Transform> pathNodes;
-
-    // TODO: fix this to List
+    public List<Transform> PathNodes { get; private set; }
     private void Awake()
     {
-        PathNodes = new Transform[transform.childCount];
-        for (int i = 0; i < PathNodes.Length; i++)
-        {
-            PathNodes[i] = transform.GetChild(i);
-        }
+        PathNodes = GetPathNodes();
     }
-    public List<Transform> GetPathNodes()
+    private List<Transform> GetPathNodes()
     {
         List<Transform> pathNodes = new List<Transform>();
-        foreach(Transform childTransform in transform)
+        foreach (Transform childTransform in transform)
         {
             pathNodes.Add(childTransform);
         }
