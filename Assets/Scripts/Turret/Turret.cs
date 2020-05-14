@@ -31,6 +31,7 @@ public class Turret : MonoBehaviour
             yield return new WaitForSeconds(changeTargetCooldown);
         }
     }
+    // Loops through enemies list and finds the closest to turret enemy
     private GameObject FindClosest()
     {
         float currentMin = Mathf.Infinity;

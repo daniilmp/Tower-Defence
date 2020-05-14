@@ -11,6 +11,7 @@ public class TurretClickManager : MonoBehaviour
             ShowTurretUpgradeUI();
         }
     }
+    // Casts a ray from mouse position. If the ray hits a turret, turret's upgrade ui sets active
     private void ShowTurretUpgradeUI()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -26,10 +27,10 @@ public class TurretClickManager : MonoBehaviour
         {
             if (_lastHit != null && _lastHit != hit.transform.GetComponent<Turret>())
             {
-                _lastHit.GetComponent<HasUpgradableUI>()?.SetActiveUpgradeUI(false);
+                _lastHit.GetComponent<IHasUpgradableUI>()?.SetActiveUpgradeUI(false);
             }
             _lastHit = hit.transform.GetComponent<Turret>();
-            _lastHit.GetComponent<HasUpgradableUI>()?.SetActiveUpgradeUI(true);
+            _lastHit.GetComponent<IHasUpgradableUI>()?.SetActiveUpgradeUI(true);
         }
         else
         {
@@ -41,7 +42,7 @@ public class TurretClickManager : MonoBehaviour
     {
         if (_lastHit != null)
         {
-            _lastHit.GetComponent<HasUpgradableUI>()?.SetActiveUpgradeUI(false);
+            _lastHit.GetComponent<IHasUpgradableUI>()?.SetActiveUpgradeUI(false);
             _lastHit = null;
         }
     }

@@ -27,11 +27,11 @@ public class EnemySpawner : MonoBehaviour, IEnemySpawner
     {
         Enemies.Remove(enemyReference);
     }
+    // Spawns from K to K+X enemies each wave and invokes next wave spawn function
     private IEnumerator EnemySpawn()
     {
         for (int i = 0; i < Random.Range(_currentWave, enemyRandomIncrement + _currentWave + 1); i++)
         {
-
             GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
             newEnemy.GetComponent<IMoveOnPath>()?.Initialize(path);
             if (_currentWave != 1)

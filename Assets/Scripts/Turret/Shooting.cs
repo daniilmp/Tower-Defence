@@ -1,11 +1,4 @@
 ﻿using UnityEngine;
-
-public interface IHasStats
-{
-    float FireRate { get; set; }
-    float Damage { get; set; }
-    float Range { get; set; }
-}
 public class Shooting : MonoBehaviour, IHasStats, IShooting
 {
     [SerializeField] private float fireRate = 0.5f, damage = 1, range = 5;
@@ -37,7 +30,7 @@ public class Shooting : MonoBehaviour, IHasStats, IShooting
 
     private void Shoot(Transform target)
     {
-        target.GetComponent<HasHealth>()?.TakeDamage(damage);
+        target.GetComponent<IHasHealth>()?.TakeDamage(damage);
     }
 
 }
