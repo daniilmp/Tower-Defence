@@ -5,14 +5,18 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour, IEnemySpawner
 {
     [SerializeField] private int enemyRandomIncrement = 4;
-    [SerializeField] private float spawnCooldown = 4, cooldownBetweenWaves = 5;
+    [SerializeField] private float spawnCooldown = 4;
+    [SerializeField] private Config config = null;
     [SerializeField] private GameObject enemyPrefab = null;
     [SerializeField] private Path path = null;
+
+    private float _timeBetweenWaves = 0;
     private int _currentWave = 1;
     public List<GameObject> Enemies { get; private set; }
     private void Awake()
     {
         Enemies = new List<GameObject>();
+        _timeBetweenWaves = config.TimeBetweenWaves; 
         SpawnWave();
     }
     public void SpawnWave()
@@ -36,7 +40,7 @@ public class EnemySpawner : MonoBehaviour, IEnemySpawner
             yield return new WaitForSeconds(spawnCooldown);
         }
         _currentWave++;
-        Invoke("SpawnWave", cooldownBetweenWaves);
+        Invoke("SpawnWave", _timeBetweenWaves);
         yield break;
     }
 }

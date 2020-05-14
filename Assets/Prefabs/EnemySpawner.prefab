@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyRandomIncrement: 4
   spawnCooldown: 0.5
-  cooldownBetweenWaves: 5
+  config: {fileID: 11400000, guid: 75db614a229d43f4d906a119c000204e, type: 2}
   enemyPrefab: {fileID: -5008763939171327547, guid: 556dd1b2547423241ad990bbcb60ad91,
     type: 3}
-  Enemies: []
+  path: {fileID: 0}
