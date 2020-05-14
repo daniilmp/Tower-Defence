@@ -6,10 +6,11 @@ public class HasHealth : MonoBehaviour, IHasHealth
 
     [SerializeField] private Healthbar healthBar = null;
     [Min(1)][SerializeField] private float startHealth = 10;
-
+    
     private float _currentHealth;
     private IHasReward _hasReward;
     private IDeath _enemyDeath;
+    private bool _isAlive = true;
 
     private void Awake()
     {
@@ -19,10 +20,12 @@ public class HasHealth : MonoBehaviour, IHasHealth
     }
     public void TakeDamage(float damageAmount)
     {
+
         _currentHealth -= damageAmount;
         healthBar.UpdateHealth(_currentHealth);
-        if (_currentHealth <= 0)
+        if (_currentHealth <= 0 && _isAlive)
         {
+            _isAlive = false;
             _hasReward?.GiveReward();
             GameStateManager.Instance.AddKill();
             _enemyDeath?.Death();
