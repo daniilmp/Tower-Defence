@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3541a1fce25d0a841844db6332eb52a6, type: 3}
   m_Name: Config
   m_EditorClassIdentifier: 
-  TimeBetweenWaves: 0
+  TimeBetweenWaves: 7

@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.5
   damage: 1
-  range: 5
+  range: 7
 --- !u!114 &4370204130540494908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0dbf07ca9f5b8a47b9b4bc7de2b9924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockOnTargetRange: 5
+  lockOnTargetRange: 7
   changeTargetCooldown: 1
 --- !u!114 &-4203683607099973806
 MonoBehaviour:
@@ -321,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5138668713458633422
 RectTransform:
   m_ObjectHideFlags: 0
