@@ -5,7 +5,7 @@ public class HasHealth : MonoBehaviour, IHasHealth
     public float StartHealth { get => startHealth; set { startHealth = value; } }
 
     [SerializeField] private Healthbar healthBar = null;
-    [SerializeField] private float startHealth = 10;
+    [Min(1)][SerializeField] private float startHealth = 10;
 
     private float _currentHealth;
     private IHasReward _hasReward;

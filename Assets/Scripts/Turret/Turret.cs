@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [SerializeField] private float lockOnTargetRange = 5, changeTargetCooldown = 1;
+    [Min(1)][SerializeField] private float lockOnTargetRange = 5;
+    [Min(0.1f)][SerializeField] private float changeTargetCooldown = 1;
     private IEnemySpawner _enemySpawner;
     private IRotateToTarget _rotateToTarget;
     private IShooting _shooting;

@@ -2,7 +2,8 @@
 
 public class UpgradableEnemy : MonoBehaviour, IUpgradable
 {
-    [SerializeField] private float healthUpgradeValue = 1f, moveSpeedUpgradeValue = 0.2f;
+    [Min(0)][SerializeField] private float healthUpgradeValue = 1f;
+    [Min(0)][SerializeField] private float moveSpeedUpgradeValue = 0.2f;
 
     private IHasHealth _hasHealth;
     private IMoveOnPath _moveOnPath;

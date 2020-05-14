@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 public class UpgradableTurret : MonoBehaviour, IUpgradable
 {
-    [SerializeField] private float upgradePrice = 1;
+    [Min(0)][SerializeField] private float upgradePrice = 1;
     [SerializeField] private float fireRateUpgradeValue = 0.05f;
     [SerializeField] private float damageUpgradeValue = 0.2f;
-    [SerializeField] private float upgradePriceIncrement = 0.5f;
-    [SerializeField] private float fireRateMax = 0.1f;
+    [Min(0)][SerializeField] private float upgradePriceIncrement = 0.5f;
+    [Min(0.05f)][SerializeField] private float fireRateMax = 0.1f;
 
     private IHasUpgradableUI _upgradableUI;
     private IHasStats _hasStats;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour, IEnemySpawner
 {
-    [SerializeField] private int enemyRandomIncrement = 4;
-    [SerializeField] private float spawnCooldown = 4;
+    [Min(0)][SerializeField] private int enemyRandomIncrement = 4;
+    [Min(0)][SerializeField] private float spawnCooldown = 4;
     [SerializeField] private Config config = null;
     [SerializeField] private GameObject enemyPrefab = null;
     [SerializeField] private Path path = null;

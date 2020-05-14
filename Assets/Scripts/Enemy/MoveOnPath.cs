@@ -2,8 +2,8 @@
 public class MoveOnPath : MonoBehaviour, IMoveOnPath
 {
     public float Speed { get => speed; set { speed = value; } }
-
-    [SerializeField] private float speed = 5f, rotationSpeed = 3f;
+    [Min(0.1f)][SerializeField] private float speed = 5f;
+    [Min(0.1f)][SerializeField] private float rotationSpeed = 3f;
     private int _currentNodeIndex = 0;
     private Transform _target;
     private bool _isAlive = true;

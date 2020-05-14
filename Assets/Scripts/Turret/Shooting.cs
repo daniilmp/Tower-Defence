@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 public class Shooting : MonoBehaviour, IHasStats, IShooting
 {
-    [SerializeField] private float fireRate = 0.5f, damage = 1, range = 5;
+    [Min(0.05f)][SerializeField] private float fireRate = 0.5f;
+    [Min(0)][SerializeField] private float damage = 1;
+    [Min(1)][SerializeField] private float range = 5;
     private float _currentBulletCooldown;
     private Transform _target;
 
