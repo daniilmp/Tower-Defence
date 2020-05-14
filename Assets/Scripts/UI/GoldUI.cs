@@ -9,6 +9,9 @@ public class GoldUI : MonoBehaviour
     private void Awake()
     {
         _textMeshPro = GetComponent<TextMeshProUGUI>();
+    }
+    private void Start()
+    {
         ChangeGoldValue(GoldManager.Instance.Gold);
         GoldManager.Instance.GoldChanged += ChangeGoldValue;
     }

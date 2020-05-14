@@ -9,6 +9,10 @@ public class HealthUI : MonoBehaviour
     private void Awake()
     {
         _textMeshPro = GetComponent<TextMeshProUGUI>();
+        
+    }
+    private void Start()
+    {
         ChangeHealth(HealthManager.Instance.Health);
         HealthManager.Instance.HealthChanged += ChangeHealth;
     }
