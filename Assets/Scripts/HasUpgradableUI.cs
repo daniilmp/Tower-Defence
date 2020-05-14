@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class HasUpgradableUI : MonoBehaviour
+public class HasUpgradableUI : MonoBehaviour, IHasUpgradableUI
 {
     [SerializeField] private GameObject upgradeUIText = null, upgradeUI = null;
     public void UpdateUpgradePriceText(float upgradePrice)

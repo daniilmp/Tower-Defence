@@ -6,7 +6,7 @@ public interface IHasStats
     float Damage { get; set; }
     float Range { get; set; }
 }
-public class Shooting: MonoBehaviour, IHasStats
+public class Shooting : MonoBehaviour, IHasStats, IShooting
 {
     [SerializeField] private float fireRate = 0.5f, damage = 1, range = 5;
     private float _currentBulletCooldown;

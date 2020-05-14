@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 
-public class HasHealth : MonoBehaviour
+public class HasHealth : MonoBehaviour, IHasHealth
 {
-    public float StartHealth { get => startHealth; set { startHealth = value; } } 
+    public float StartHealth { get => startHealth; set { startHealth = value; } }
 
     [SerializeField] private Healthbar healthBar = null;
     [SerializeField] private float startHealth = 10;
 
     private float _currentHealth;
-    private HasReward _hasReward;
-    private EnemyDeath _enemyDeath;
+    private IHasReward _hasReward;
+    private IDeath _enemyDeath;
 
     private void Awake()
     {
-        _hasReward = GetComponent<HasReward>();
-        _enemyDeath = GetComponent<EnemyDeath>();
+        _hasReward = GetComponent<IHasReward>();
+        _enemyDeath = GetComponent<IDeath>();
         _currentHealth = startHealth;
     }
     public void TakeDamage(float damageAmount)

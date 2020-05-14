@@ -2,27 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour, IEnemySpawner
 {
     [SerializeField] private int enemyRandomIncrement = 4;
     [SerializeField] private float spawnCooldown = 4, cooldownBetweenWaves = 5;
-    [SerializeField] private Enemy enemyPrefab = null;
+    [SerializeField] private GameObject enemyPrefab = null;
     private int _currentWave = 1;
-    public List<Enemy> Enemies;
+    public List<GameObject> Enemies { get; private set; }
     private void Awake()
     {
+        Enemies = new List<GameObject>();
         SpawnWave();
     }
-    void SpawnWave()
+    public void SpawnWave()
     {
         StartCoroutine(EnemySpawn());
+    }
+    public void RemoveEnemy(GameObject enemyReference)
+    {
+        Enemies.Remove(enemyReference);
     }
     private IEnumerator EnemySpawn()
     {
         for (int i = 0; i < Random.Range(_currentWave, enemyRandomIncrement + _currentWave + 1); i++)
         {
-            
-            Enemy newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
+
+            GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
             if (_currentWave != 1)
                 newEnemy.GetComponent<IUpgradable>()?.Upgrade();
             Enemies.Add(newEnemy);

@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 
-public class EnemyDeath : MonoBehaviour
+public class EnemyDeath : MonoBehaviour, IDeath
 {
-    private Enemy enemyReference;
-    private void Awake()
-    {
-        enemyReference = GetComponent<Enemy>();
-    }
     public void Death()
     {
-        FindObjectOfType<EnemySpawner>().Enemies.Remove(enemyReference);
+        FindObjectOfType<EnemySpawner>().RemoveEnemy(gameObject);
         Destroy(gameObject);
     }
 }

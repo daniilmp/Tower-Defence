@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HasReward : MonoBehaviour
+public class HasReward : MonoBehaviour, IHasReward
 {
     [SerializeField] private float rewardAmount = 1f;
     public void GiveReward()

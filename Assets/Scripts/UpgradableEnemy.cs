@@ -4,18 +4,18 @@ public class UpgradableEnemy : MonoBehaviour, IUpgradable
 {
     [SerializeField] private float healthUpgradeValue = 1f, moveSpeedUpgradeValue = 0.2f;
 
-    private HasHealth _hasHealth;
-    private MoveOnPath _moveOnPath;
+    private IHasHealth _hasHealth;
+    private IMove _moveOnPath;
     private void Awake()
     {
-        _hasHealth = GetComponent<HasHealth>();
-        _moveOnPath = GetComponent<MoveOnPath>();
+        _hasHealth = GetComponent<IHasHealth>();
+        _moveOnPath = GetComponent<IMove>();
     }
     public void Upgrade()
     {
-        if(_hasHealth)
+        if(_hasHealth != null)
             _hasHealth.StartHealth += healthUpgradeValue;
-        if(_moveOnPath)
+        if(_moveOnPath != null)
             _moveOnPath.Speed += moveSpeedUpgradeValue;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-public class MoveOnPath : MonoBehaviour
+public class MoveOnPath : MonoBehaviour, IMove
 {
-    public float Speed  { get => speed; set { speed = value; } }
+    public float Speed { get => speed; set { speed = value; } }
 
     [SerializeField]
     private float speed = 5f, rotationSpeed = 3f;

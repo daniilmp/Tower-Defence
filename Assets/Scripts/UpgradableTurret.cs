@@ -7,11 +7,11 @@ public class UpgradableTurret : MonoBehaviour, IUpgradable
     [SerializeField] private float upgradePriceIncrement = 0.5f;
     [SerializeField] private float fireRateMax = 0.1f;
 
-    private HasUpgradableUI _upgradableUI;
+    private IHasUpgradableUI _upgradableUI;
     private IHasStats _hasStats;
     private void Awake()
     {
-        _upgradableUI = GetComponent<HasUpgradableUI>();
+        _upgradableUI = GetComponent<IHasUpgradableUI>();
         _hasStats = GetComponent<IHasStats>();
         _upgradableUI?.UpdateUpgradePriceText(upgradePrice);
     }

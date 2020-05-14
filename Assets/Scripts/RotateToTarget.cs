@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class RotateToTarget: MonoBehaviour
+public class RotateToTarget : MonoBehaviour, IRotateToTarget
 {
     private Transform _target;
     private void Update()
     {
-        if(_target)
+        if (_target)
             LockOnTarget(_target);
     }
     public void ChangeTarget(Transform target)

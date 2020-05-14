@@ -4,15 +4,15 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     [SerializeField] private float lockOnTargetRange = 5, changeTargetCooldown = 1;
-    private EnemySpawner _enemySpawner;
-    private RotateToTarget _rotateToTarget;
-    private Shooting _shooting;
-    private Enemy _target = null;
+    private IEnemySpawner _enemySpawner;
+    private IRotateToTarget _rotateToTarget;
+    private IShooting _shooting;
+    private GameObject _target = null;
     private void Awake()
     {
         _enemySpawner = FindObjectOfType<EnemySpawner>();
-        _shooting = GetComponent<Shooting>();
-        _rotateToTarget = GetComponent<RotateToTarget>();
+        _shooting = GetComponent<IShooting>();
+        _rotateToTarget = GetComponent<IRotateToTarget>();
         StartCoroutine(ChangeTarget());
     }
     private void Update()
@@ -31,17 +31,20 @@ public class Turret : MonoBehaviour
             yield return new WaitForSeconds(changeTargetCooldown);
         }
     }
-    private Enemy FindClosest()
+    private GameObject FindClosest()
     {
         float currentMin = Mathf.Infinity;
-        Enemy target = null;
-        foreach (Enemy enemy in _enemySpawner.Enemies)
+        GameObject target = null;
+        if (_enemySpawner.Enemies != null)
         {
-            float distanceToEnemy = Vector3.Distance(enemy.transform.position, transform.position);
-            if (distanceToEnemy <= currentMin && distanceToEnemy <= lockOnTargetRange)
+            foreach (GameObject enemy in _enemySpawner.Enemies)
             {
-                currentMin = distanceToEnemy;
-                target = enemy;
+                float distanceToEnemy = Vector3.Distance(enemy.transform.position, transform.position);
+                if (distanceToEnemy <= currentMin && distanceToEnemy <= lockOnTargetRange)
+                {
+                    currentMin = distanceToEnemy;
+                    target = enemy;
+                }
             }
         }
         return target;
