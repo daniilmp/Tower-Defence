@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour, IEnemySpawner
             yield return new WaitForSeconds(spawnCooldown);
         }
         _currentWave++;
-        Invoke("SpawnWave", _timeBetweenWaves);
+        Invoke(nameof(SpawnWave), _timeBetweenWaves);
         yield break;
     }
 }
