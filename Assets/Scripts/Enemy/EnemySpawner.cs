@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour, IEnemySpawner
     [SerializeField] private Config config = null;
     [SerializeField] private GameObject enemyPrefab = null;
     [SerializeField] private Path path = null;
+    [SerializeField] private PlayerHealth playerHealth = null;
 
     private float _timeBetweenWaves = 0;
     private int _currentWave = 1;
@@ -34,6 +35,7 @@ public class EnemySpawner : MonoBehaviour, IEnemySpawner
         {
             GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
             newEnemy.GetComponent<IMoveOnPath>()?.Initialize(path);
+            newEnemy.GetComponent<ICanDealDamage>()?.Initialize(playerHealth);
             if (_currentWave != 1)
                 newEnemy.GetComponent<IUpgradable>()?.Upgrade();
             Enemies.Add(newEnemy);
@@ -44,3 +46,5 @@ public class EnemySpawner : MonoBehaviour, IEnemySpawner
         yield break;
     }
 }
+
+

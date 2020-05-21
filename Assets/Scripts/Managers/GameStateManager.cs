@@ -4,13 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class GameStateManager : Singleton<GameStateManager>
 {
+    [SerializeField] private PlayerHealth playerHealth = null;
+
     public event Action<int> GameOver;
     private bool _isGameOver = false;
     private int _killCount = 0;
 
     private void Start()
     {
-        HealthManager.Instance.HealthChanged += OnHealthChange;
+        playerHealth.HealthChanged += OnHealthChange;
 
     }
     public void AddKill()
@@ -45,6 +47,6 @@ public class GameStateManager : Singleton<GameStateManager>
     }
     private void OnDestroy()
     {
-        HealthManager.Instance.HealthChanged -= OnHealthChange;
+        playerHealth.HealthChanged -= OnHealthChange;
     }
 }

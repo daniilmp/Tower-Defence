@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
+    [SerializeField] private PlayerHealth playerHealth = null;
     private TextMeshProUGUI _textMeshPro;
     private void Awake()
     {
@@ -13,8 +12,8 @@ public class HealthUI : MonoBehaviour
     }
     private void Start()
     {
-        ChangeHealth(HealthManager.Instance.Health);
-        HealthManager.Instance.HealthChanged += ChangeHealth;
+        ChangeHealth(playerHealth.Health);
+        playerHealth.HealthChanged += ChangeHealth;
     }
     private void ChangeHealth(float health)
     {
@@ -22,6 +21,6 @@ public class HealthUI : MonoBehaviour
     }
     private void OnDestroy()
     {
-        HealthManager.Instance.HealthChanged -= ChangeHealth;
+        playerHealth.HealthChanged -= ChangeHealth;
     }
 }
