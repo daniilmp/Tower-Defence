@@ -6,25 +6,20 @@ public class GameStateManager : MonoBehaviour
 {
     [SerializeField] private PlayerHealth playerHealth = null;
 
-    public event Action<int> GameOver;
+    public event Action GameOver;
     private bool _isGameOver = false;
-    private int _killCount = 0;
 
     private void Start()
     {
         playerHealth.HealthChanged += OnHealthChange;
 
     }
-    public void AddKill()
-    {
-        _killCount++;
-    }
 
     private void OnHealthChange(float currentHealth)
     {
         if( currentHealth <= 0)
         {
-            GameOver(_killCount);
+            GameOver();
             Time.timeScale = 0;
             _isGameOver = true;
         }
