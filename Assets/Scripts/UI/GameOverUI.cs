@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
 {
-    [SerializeField] private GameStateManager gameStateManager = null;
+    [SerializeField] private GameState gameStateManager = null;
     [SerializeField] private GameObject enemiesKilledText = null;
     [SerializeField] private PlayerKillCount playerKillCount = null;
     private void Awake()

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TurretClickManager : MonoBehaviour
+public class TurretClickController : MonoBehaviour
 {
     Turret _lastHit;
     private Camera _camera;

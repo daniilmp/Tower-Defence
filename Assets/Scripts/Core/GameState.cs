@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStateManager : MonoBehaviour
+public class GameState : MonoBehaviour
 {
     [SerializeField] private PlayerHealth playerHealth = null;
 
@@ -14,7 +14,6 @@ public class GameStateManager : MonoBehaviour
         playerHealth.HealthChanged += OnHealthChange;
 
     }
-
     private void OnHealthChange(float currentHealth)
     {
         if( currentHealth <= 0)
