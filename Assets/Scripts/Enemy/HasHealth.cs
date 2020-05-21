@@ -11,7 +11,7 @@ public class HasHealth : MonoBehaviour, IHasHealth
     private IHasReward _hasReward;
     private IDeath _enemyDeath;
     private bool _isAlive = true;
-
+    private GameStateManager _gameStateManager;
     private void Awake()
     {
         _hasReward = GetComponent<IHasReward>();
@@ -27,9 +27,13 @@ public class HasHealth : MonoBehaviour, IHasHealth
         {
             _isAlive = false;
             _hasReward?.GiveReward();
-            GameStateManager.Instance.AddKill();
+            _gameStateManager.AddKill();
             _enemyDeath?.Death();
         }
+    }
+    public void Initialize(GameStateManager gameStateManager)
+    {
+        _gameStateManager = gameStateManager;
     }
 }
 

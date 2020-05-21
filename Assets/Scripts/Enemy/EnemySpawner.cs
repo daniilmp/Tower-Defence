@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour, IEnemySpawner
     [SerializeField] private Path path = null;
     [SerializeField] private PlayerHealth playerHealth = null;
     [SerializeField] private PlayerGold playerGold = null;
-
+    [SerializeField] private GameStateManager gameStateManager = null;
     private float _timeBetweenWaves = 0;
     private int _currentWave = 1;
     public List<GameObject> Enemies { get; private set; }
@@ -38,6 +38,7 @@ public class EnemySpawner : MonoBehaviour, IEnemySpawner
             newEnemy.GetComponent<IMoveOnPath>()?.Initialize(path);
             newEnemy.GetComponent<ICanDealDamage>()?.Initialize(playerHealth);
             newEnemy.GetComponent<IHasReward>()?.Initialize(playerGold);
+            newEnemy.GetComponent<IHasHealth>()?.Initialize(gameStateManager);
             if (_currentWave != 1)
                 newEnemy.GetComponent<IUpgradable>()?.Upgrade();
             Enemies.Add(newEnemy);

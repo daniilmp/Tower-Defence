@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameStateManager : Singleton<GameStateManager>
+public class GameStateManager : MonoBehaviour
 {
     [SerializeField] private PlayerHealth playerHealth = null;
 
