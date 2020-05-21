@@ -260,6 +260,8 @@ MonoBehaviour:
   damageUpgradeValue: 0.2
   upgradePriceIncrement: 0.5
   fireRateMax: 0.1
+  playerGold: {fileID: 4076720467159568712, guid: 0212f7bc4fa30f24381a376f67f3be30,
+    type: 3}
 --- !u!114 &4370204130540494905
 MonoBehaviour:
   m_ObjectHideFlags: 0

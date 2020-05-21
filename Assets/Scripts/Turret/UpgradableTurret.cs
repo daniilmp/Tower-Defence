@@ -6,7 +6,7 @@ public class UpgradableTurret : MonoBehaviour, IUpgradable
     [SerializeField] private float damageUpgradeValue = 0.2f;
     [Min(0)][SerializeField] private float upgradePriceIncrement = 0.5f;
     [Min(0.05f)][SerializeField] private float fireRateMax = 0.1f;
-
+    [SerializeField] private PlayerGold playerGold = null;
     private IHasUpgradableUI _upgradableUI;
     private IHasStats _hasStats;
     private void Awake()
@@ -17,9 +17,9 @@ public class UpgradableTurret : MonoBehaviour, IUpgradable
     }
     public void Upgrade()
     {
-        if (GoldManager.Instance.CanSpend(upgradePrice))
+        if (playerGold.CanSpend(upgradePrice))
         {
-            GoldManager.Instance.SpendGold(upgradePrice);
+            playerGold.SpendGold(upgradePrice);
             UpgradeStats();
             ChangeUpgradePrice();
         }

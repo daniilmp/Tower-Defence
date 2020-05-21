@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class GoldManager: Singleton<GoldManager>
+public class PlayerGold: MonoBehaviour
 {
     public event Action<float> GoldChanged;
 

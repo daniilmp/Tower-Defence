@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GoldUI : MonoBehaviour
 {
+    [SerializeField] PlayerGold playerGold = null;
+
     private TextMeshProUGUI _textMeshPro;
     private void Awake()
     {
@@ -12,8 +14,8 @@ public class GoldUI : MonoBehaviour
     }
     private void Start()
     {
-        ChangeGoldValue(GoldManager.Instance.Gold);
-        GoldManager.Instance.GoldChanged += ChangeGoldValue;
+        ChangeGoldValue(playerGold.Gold);
+        playerGold.GoldChanged += ChangeGoldValue;
     }
     private void ChangeGoldValue(float gold)
     {
@@ -21,6 +23,6 @@ public class GoldUI : MonoBehaviour
     }
     private void OnDestroy()
     {
-        GoldManager.Instance.GoldChanged -= ChangeGoldValue;
+        playerGold.GoldChanged -= ChangeGoldValue;
     }
 }
