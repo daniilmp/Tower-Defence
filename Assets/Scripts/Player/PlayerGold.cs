@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerGold: MonoBehaviour
+public class PlayerGold : MonoBehaviour, IPlayerGold
 {
     public event Action<float> GoldChanged;
 
     [SerializeField] private float gold = 0;
     public float Gold { get => gold; }
-    
+
     public void AddGold(float amount)
     {
         gold += amount;

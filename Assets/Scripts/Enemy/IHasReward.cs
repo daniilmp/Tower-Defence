@@ -1,5 +1,5 @@
 ﻿public interface IHasReward
 {
     void GiveReward();
-    void Initialize(PlayerGold playerGold);
+    void Initialize(IPlayerGold playerGold);
 }

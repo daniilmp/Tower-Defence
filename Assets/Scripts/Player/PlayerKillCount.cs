@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerKillCount : MonoBehaviour
+public class PlayerKillCount : MonoBehaviour, IPlayerKillCount
 {
     private int _killCount = 0;
 

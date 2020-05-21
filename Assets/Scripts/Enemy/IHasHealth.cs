@@ -2,6 +2,6 @@
 {
     float StartHealth { get; set; }
 
-    void Initialize(PlayerKillCount playerKillCount);
+    void Initialize(IPlayerKillCount playerKillCount);
     void TakeDamage(float damageAmount);
 }

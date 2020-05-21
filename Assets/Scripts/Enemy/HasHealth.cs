@@ -11,7 +11,7 @@ public class HasHealth : MonoBehaviour, IHasHealth
     private IHasReward _hasReward;
     private IDeath _enemyDeath;
     private bool _isAlive = true;
-    private PlayerKillCount _playerKillCount;
+    private IPlayerKillCount _playerKillCount;
     private void Awake()
     {
         _hasReward = GetComponent<IHasReward>();
@@ -31,7 +31,7 @@ public class HasHealth : MonoBehaviour, IHasHealth
             _enemyDeath?.Death();
         }
     }
-    public void Initialize(PlayerKillCount playerKillCount)
+    public void Initialize(IPlayerKillCount playerKillCount)
     {
         _playerKillCount = playerKillCount;
     }
